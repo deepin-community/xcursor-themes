@@ -1,0 +1,4 @@
+#git=git://anongit.freedesktop.org/xorg/data/cursors
+version=3
+opts=pgpsigurlmangle=s/$/.sig/ \
+https://xorg.freedesktop.org/releases/individual/data/ xcursor-themes-(.*)\.tar\.gz

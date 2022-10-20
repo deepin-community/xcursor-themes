@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# debian/rules for the Debian xcursor-themes package.
+# Copyright © 2004 Scott James Remnant <scott@netsplit.com>
+# Copyright © 2005 Daniel Stone <daniel@fooishbar.org>
+# Copyright © 2005 David Nusinow <dnusinow@debian.org>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --with quilt,autoreconf --builddirectory=build/ --parallel
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+	install -d $(CURDIR)/debian/tmp/etc/X11/cursors
+	install -m 644 $(CURDIR)/debian/*.theme $(CURDIR)/debian/tmp/etc/X11/cursors/
